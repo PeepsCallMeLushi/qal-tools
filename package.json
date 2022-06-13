@@ -8,7 +8,7 @@
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "base-href-build": "ng build --aot --base-href https://mtg.peepscallmelushi.com/",
-        "deploy": "ngh --dir=dist/mtg-collection-tool"
+        "deploy": "ngh --dir=docs"
     },
     "private": true,
     "dependencies": {
