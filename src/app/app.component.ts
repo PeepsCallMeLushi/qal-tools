@@ -40,6 +40,10 @@ export class AppComponent implements OnInit {
 		});
 		
 	}
+
+	public dataCopy(): string {
+		return JSON.stringify(this.cardListForTable);
+	}
 	private cleanArrays(): void {
 		this.cardListFromRequest = [];
 		this.cardListForTable = [];

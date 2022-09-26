@@ -5,28 +5,18 @@ html {
 }
 
 body {
+    background-color: #181818;
+    color: #fff;
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.set-autocomplete-input {
-    min-width: 25%;
+.width-100 {
+    width: 100%;
 }
 
-.width-50 {
-    width: 50%;
-}
-
-.center {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.parent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.padding-bottom-50 {
+    padding-bottom: 50px;
 }
 
 .margin-top-50 {
