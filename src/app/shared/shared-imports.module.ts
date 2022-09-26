@@ -6,6 +6,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [],
@@ -13,6 +14,7 @@ import { MatTableModule } from '@angular/material/table';
     CommonModule
   ],
   exports: [
+    ClipboardModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatDialogModule,
