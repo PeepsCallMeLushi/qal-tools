@@ -12,33 +12,15 @@ import { CardFilteringService } from './shared/services';
 })
 export class AppComponent implements OnInit {
 
-	public searchFormControl = new FormControl('');
-	public filterList: Observable<ProcessedSet[]>;
 	public cardListForTable: CardTable[] = []
-	public displayedColumns: string[] = [
-		'count',
-		'tradelist_count',
-		'name',
-		'edition',
-		'condition',
-		'language',
-		'foil',
-		'tags',
-		'last_modified',
-		'collector_number'
-	];
+	public setList: ProcessedSet[] = [];
 	
 	public loading = false;
 	
 	private cardListFromRequest: Card[] = [];
-	private setList: ProcessedSet[] = [];
 	private setInTable: ProcessedSet | undefined;
 
-	constructor(private cardService: CardFilteringService) {
-		this.filterList = this.searchFormControl.valueChanges.pipe(
-			startWith(''),
-			map((value) => this.filterOptions(value || '')));
-	}
+	constructor(private cardService: CardFilteringService) { }
 
 	ngOnInit() {
 		this.cardService.requestSetList().subscribe((setList: SetListResponse) => {
@@ -66,9 +48,10 @@ export class AppComponent implements OnInit {
 	private loopCardPages(searchQuery: string | undefined): void {
 		this.cardService.getCardListFromSet(searchQuery).pipe(delay(100)).subscribe((setList: CardListResponse) => {
 			this.cardListFromRequest = this.cardListFromRequest.concat(setList.data);
-			if (setList.has_more && +this.cardListFromRequest[this.cardListFromRequest.length -1].collector_number <= (this.setInTable?.set_print_size || 0)) {
+			if (setList.has_more) {
 				this.loopCardPages(setList.next_page);
 			} else {
+				this.handleSetPrintSize();
 				this.cardListFromRequest.filter((card: Card)=>{
 					if (this.setInTable?.set_print_size && +card.collector_number <= this.setInTable?.set_print_size) {
 						this.cardListForTable.push({
@@ -91,11 +74,14 @@ export class AppComponent implements OnInit {
 		});
 	}
 
-	private filterOptions(value: string): ProcessedSet[] {
-		return this.setList.filter(set => 
-			set.set_name.toLowerCase().includes(value.toLowerCase())
-			|| set.set_abreviation.toLowerCase().includes(value.toLowerCase())
-		);
+	private handleSetPrintSize() {
+		if (!this.setInTable?.set_print_size) {
+			const setForests:Card[] = this.cardListFromRequest.filter((card: Card) => card.name === "Forest" && card.type_line === "Basic Land — Forest");
+			const lastForest: Card = setForests[setForests.length - 1];
+			if (this.setInTable) {
+				this.setInTable.set_print_size = +lastForest.collector_number;
+			}
+		}
 	}
 
 }

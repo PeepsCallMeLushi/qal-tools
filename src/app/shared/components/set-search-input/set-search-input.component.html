@@ -1,0 +1,11 @@
+<div class="parent margin-top-50">
+    <mat-form-field class="width-50 set-autocomplete-input" appearance="fill">
+        <mat-label>Set</mat-label>
+        <input matInput type="text" placeholder="Start typing a set name or code" aria-label="Set" [formControl]="searchFormControl" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="emitOptionSelected($event.option.value)">
+            <mat-option *ngFor="let set of filterList | async" [value]="set.set_name">
+                {{set.set_name}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</div>
