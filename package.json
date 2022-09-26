@@ -6,9 +6,7 @@
         "start": "ng serve",
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
-        "test": "ng test",
-        "base-href-build": "ng build --aot --base-href ./",
-        "deploy": "ngh --dir=dist/mtg-collection-tool"
+        "test": "ng test"
     },
     "private": true,
     "dependencies": {
