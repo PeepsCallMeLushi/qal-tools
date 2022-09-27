@@ -1,4 +1,8 @@
 <form>
+    <div class="version">
+        <label>Created by: PeepsCallMeLushi</label><br>
+        <label>Version: {{ appVersion }}</label>
+    </div>
     <div class="container padding-bottom-50">
         <set-search-input [setList]="setList" (searchResults)="selectSetCards($event)"></set-search-input>
         <card-table *ngIf="!loading" [cardListForTable]="cardListForTable"></card-table>

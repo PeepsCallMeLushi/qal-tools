@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { delay, map, Observable, startWith } from 'rxjs';
+import { delay } from 'rxjs';
+import packageJson from '../../package.json';
 import { Card, CardListResponse, ProcessedSet, Set, SetListResponse } from './shared/models';
 import { CardTable } from './shared/models/card-table.model';
 import { CardFilteringService } from './shared/services';
@@ -11,6 +11,8 @@ import { CardFilteringService } from './shared/services';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+	public appVersion = packageJson.version;
 
 	public cardListForTable: CardTable[] = []
 	public setList: ProcessedSet[] = [];
