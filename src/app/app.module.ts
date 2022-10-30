@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { LoadingDialogComponent } from './shared/components/loading-dialog/loading-dialog.component';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,10 @@ import { RouterModule } from '@angular/router';
     SharedModule,
     RouterModule.forRoot([]),
   ],
-  providers: [],
+  providers: [
+    LoadingDialogComponent,
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
+  ],
   bootstrap: [
     AppComponent
   ]
