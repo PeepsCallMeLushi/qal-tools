@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { LoadingDialogComponent } from './shared/components/loading-dialog/loading-dialog.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
     BrowserAnimationsModule,
     SharedModule,
     RouterModule.forRoot([]),
+    AppRoutingModule,
   ],
   providers: [
     LoadingDialogComponent,
