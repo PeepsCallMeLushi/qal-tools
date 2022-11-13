@@ -6,6 +6,7 @@ import { OptionButtonsComponent } from './components/action-buttons/option-butto
 import { CardTableComponent } from './components/card-table/card-table.component';
 import { LoadingDialogComponent } from './components/loading-dialog/loading-dialog.component';
 import { SetSearchInputComponent } from './components/set-search-input/set-search-input.component';
+import { VersionLabelComponent } from './components/version-label/version-label.component';
 import { SharedImportsModule } from './shared-imports.module';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SharedImportsModule } from './shared-imports.module';
     LoadingDialogComponent,
     OptionButtonsComponent,
     SetSearchInputComponent,
+    VersionLabelComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { SharedImportsModule } from './shared-imports.module';
     ReactiveFormsModule,
     OptionButtonsComponent,
     SetSearchInputComponent,
+    VersionLabelComponent,
     SharedImportsModule,
   ]
 })

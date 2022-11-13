@@ -1,8 +1,5 @@
 <form>
-    <div class="version">
-        <label>Created by: PeepsCallMeLushi</label><br>
-        <label>Version: {{ appVersion }}</label>
-    </div>
+    <version-label></version-label>
     <action-buttons [actions]="actions"></action-buttons>
     <div class="container padding-bottom-50">
         <router-outlet></router-outlet>

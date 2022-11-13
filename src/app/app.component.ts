@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import packageJson from '../../package.json';
 import { ActionButton } from './shared/models';
 
 @Component({
@@ -9,8 +8,6 @@ import { ActionButton } from './shared/models';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	
-	public appVersion = packageJson.version;
 
 	public actions: ActionButton[] = [
 		{
@@ -23,7 +20,7 @@ export class AppComponent {
 		{
 			icon: 'calculate',
 			action: () => {
-				this.router.navigate(['nikke'])
+				this.router.navigate(['nikke', 'data-set-calculator'])
 			},
 			tooltip: 'Go to Nikke\'s Data Calculator',
 		}

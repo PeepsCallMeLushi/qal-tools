@@ -1,0 +1,9 @@
+.version {
+    color: #80808088;
+    @media only screen and (min-width: 768px) {
+        /* Safari */
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+    }
+}
