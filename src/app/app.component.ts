@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import packageJson from '../../package.json';
 
 @Component({
@@ -7,6 +8,10 @@ import packageJson from '../../package.json';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+	constructor(private router: Router) {
+		this.router.navigate(['mtg-tool']);
+	}
 
 	public appVersion = packageJson.version;
 
