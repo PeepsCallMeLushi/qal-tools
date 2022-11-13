@@ -1,0 +1,10 @@
+<set-search-input [setList]="setList" (searchResults)="selectSetCards($event)"></set-search-input>
+<mat-checkbox *ngIf="cardExtrasForTable.length > 0 && cardListForTable.length > 0" (change)="showExtras = $event.checked">Show Extras</mat-checkbox>
+<mat-tab-group *ngIf="!loading && (cardListForTable.length > 0 || cardExtrasForTable.length > 0)">
+    <mat-tab label="Set" *ngIf="cardListForTable.length > 0">
+        <card-table [cardListForTable]="cardListForTable"></card-table>
+    </mat-tab>
+    <mat-tab label="Extras" *ngIf="(cardListForTable.length > 0 &&showExtras) || (cardListForTable.length === 0 && cardExtrasForTable.length > 0)">
+        <card-table [cardListForTable]="cardExtrasForTable"></card-table>
+    </mat-tab>
+</mat-tab-group>
