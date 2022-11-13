@@ -6,11 +6,15 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'mtg-tool'
+    redirectTo: 'mtg/set-list'
   },
   { 
-    path: 'mtg-tool',
+    path: 'mtg',
     loadChildren: () => import('./mtg-tool/mtg-tool.module').then(m => m.MtgToolModule)
+  },
+  {
+    path: 'nikke',
+    loadChildren: () => import('./nikke/nikke.module').then(m => m.NikkeModule)
   },
 
 ];

@@ -1,0 +1,12 @@
+.option-button {
+    height: 48px;
+    width: 48px;
+    margin-right: 8px;
+    float: right;
+    margin-bottom: 10px;
+    &.mat-fab::ng-deep {
+        span.mat-button-wrapper {
+            padding: 12px 0 !important;
+        }
+    }
+}
