@@ -1,0 +1,5 @@
+<div *ngFor="let action of actions">
+    <button mat-fab color="primary" type="button" class="option-button" (click)="action.action()" [matTooltip]="action.tooltip" [matTooltipPosition]="'left'">
+        <mat-icon>{{action.icon}}</mat-icon>
+    </button>
+</div>
