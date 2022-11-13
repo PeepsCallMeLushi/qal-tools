@@ -1,0 +1,6 @@
+<div class="action-button">
+    <option-buttons *ngIf="openMenu" [actions]="actions"></option-buttons>
+    <button mat-fab color="primary" type="button" class="menu-button" (click)="openMenu = !openMenu">
+        <mat-icon>menu_open</mat-icon>
+    </button>
+</div>
