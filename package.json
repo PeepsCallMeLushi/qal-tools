@@ -1,6 +1,6 @@
 {
     "name": "mtg-collection-tool",
-    "version": "2022.11.13",
+    "version": "2022.11.13b",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
