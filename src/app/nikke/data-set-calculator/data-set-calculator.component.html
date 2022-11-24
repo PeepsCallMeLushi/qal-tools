@@ -1,1 +1,46 @@
-<b>WIP!</b>
+<h1>Nikke Time Calculator</h1>
+<div class="row margin-top-16" *ngIf="creditCalcResult !== '' || dataSetsCalcResult !== '' || coreDustCalcResult !== ''">
+    <h2>Calculation Results</h2>
+    <mat-divider></mat-divider>
+    <div class="col-xs-12 col-md-4 margin-top-16">
+        <ng-container *ngIf="creditCalcResult !== ''">
+            <h3>Credits</h3>
+            <p>{{creditCalcResult}}</p>
+        </ng-container>
+    </div>
+    <div class="col-xs-12 col-md-4 margin-top-16">
+        <ng-container *ngIf="dataSetsCalcResult !== ''">
+            <h3>Data Sets</h3>
+            <p>{{dataSetsCalcResult}}</p>
+        </ng-container>
+    </div>
+    <div class="col-xs-12 col-md-4 margin-top-16">
+        <ng-container *ngIf="coreDustCalcResult !== ''">
+            <h3>Core Dust</h3>
+            <p>{{coreDustCalcResult}}</p>
+        </ng-container>
+    </div>
+    <mat-divider></mat-divider>
+</div>
+<div class="row expansion-panel-height">
+    <div class="col-xs-12 col-md-4 margin-top-16" *ngFor="let header of resourceHeaders">
+        <resource-expansion-panel [headerData]="header"></resource-expansion-panel>
+    </div>
+</div>
+<div class="row margin-top-16">
+    <div class="col-xs-6 col-md-6">
+        <button mat-stroked-button type="button" (click)="deleteAllRows()" color="warn">Delete all rows <mat-icon>delete</mat-icon></button>
+    </div>
+    <div class="col-xs-6 col-md-6 align-right">
+        <button mat-stroked-button type="button" (click)="addRow()" color="accent" class="margin-right-16">Add Row <mat-icon>add</mat-icon></button>
+        <button mat-stroked-button type="button" (click)="calculate()" color="primary">Calculate <mat-icon>calculate</mat-icon></button>
+    </div>
+</div>
+<ng-container *ngFor="let row of calculationRows; let i = index;">
+    <calculation-row [row]="row" (deleteRow)="deleteRow(i)" (duplicateRow)="duplicateRow(i)">
+    </calculation-row>
+</ng-container>
+<div class="align-right margin-top-16">
+    <button mat-stroked-button type="button" (click)="addRow()" color="accent" class="margin-right-16">Add Row <mat-icon>add</mat-icon></button>
+    <button mat-stroked-button type="button" (click)="calculate()" color="primary">Calculate <mat-icon>calculate</mat-icon></button>
+</div>

@@ -6,6 +6,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'set-list',
+    pathMatch: 'full',
+  },
+  {
     path: 'set-list',
     component: MtgToolComponent,
   },

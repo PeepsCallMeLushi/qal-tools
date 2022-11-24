@@ -11,6 +11,13 @@ export class AppComponent {
 
 	public actions: ActionButton[] = [
 		{
+			icon: 'arrow_upward',
+			action: () => {
+				window.scrollTo(0,0);
+			},
+			tooltip: 'Back to top',
+		},
+		{
 			icon: 'checklist',
 			action: () => {
 				this.router.navigate(['mtg', 'set-list']);
@@ -23,11 +30,9 @@ export class AppComponent {
 				this.router.navigate(['nikke', 'data-set-calculator'])
 			},
 			tooltip: 'Go to Nikke\'s Data Calculator',
-		}
+		},
 	];
 
-	constructor(private router: Router) {
-		this.router.navigate(['mtg','set-list']);
-	}
+	constructor(private router: Router) {}
 
 }

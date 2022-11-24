@@ -1,0 +1,21 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{headerData.headerName}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field appearance="outline" class="width-100">
+                <mat-label>{{headerData.leftInputLabel}}</mat-label>
+                <input matInput type="number" [name]="headerData.leftIndentifier" [id]="headerData.leftIndentifier" [formControl]="headerData.leftFormControl" [placeholder]="headerData.leftPlaceholder">
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field appearance="outline" class="width-100">
+                <mat-label>{{headerData.rightInputLabel}}</mat-label>
+                <input matInput type="number" [name]="headerData.rightIndentifier" [id]="headerData.rightIndentifier" [formControl]="headerData.rightFormControl" [placeholder]="headerData.rightPlaceholder">
+            </mat-form-field>
+        </div>
+    </div>
+</mat-expansion-panel>

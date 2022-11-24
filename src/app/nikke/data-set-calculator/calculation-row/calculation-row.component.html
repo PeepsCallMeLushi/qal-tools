@@ -1,0 +1,40 @@
+<div class="row margin-top-16">
+    <div class="col-xs-6 col-md-3">
+        <mat-form-field appearance="outline" class="width-100">
+            <mat-label>Select the Material</mat-label>
+            <mat-select [formControl]="$any(row).get('materialType')">
+                <mat-option *ngFor="let material of materialOptions" [value]="material.value">{{material.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-xs-6 col-md-5">
+        <mat-form-field appearance="outline" class="width-100">
+            <mat-label>Ammount of {{getMaterialName()}} needed</mat-label>
+            <input matInput type="number" [formControl]="$any(row).get('materialQuantity')" [placeholder]="getMaterialName()">
+        </mat-form-field>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <mat-form-field appearance="outline" class="width-100">
+            <mat-label>Ammount of Characters to Level up</mat-label>
+            <input matInput type="number" [formControl]="$any(row).get('howManyCharactersNeedIt')" [placeholder]="'How many characters?'">
+        </mat-form-field>
+    </div>
+    <div class="col-xs-6 col-md-1 align-right">
+        <ng-container *ngIf="widthBiggerThanOrEqualTo(768); else mobileRow">
+            <button mat-icon-button [matMenuTriggerFor]="menu" type="button"><mat-icon>more_vert</mat-icon></button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="duplicateAction()"><mat-icon>content_copy</mat-icon>Duplicate Row</button>
+                <button mat-menu-item color="primary" (click)="deleteAction()"><mat-icon>delete</mat-icon>Delete Row</button>
+            </mat-menu>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #mobileRow>
+    <div class="row">
+        <div class="col-12">
+            <button mat-stroked-button type="button" color="accent" (click)="duplicateAction()" class="margin-right-16">Add Row <mat-icon>content_copy</mat-icon></button>
+            <button mat-stroked-button type="button " color="warn" (click)="deleteAction()">Delete Row <mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+</ng-template>

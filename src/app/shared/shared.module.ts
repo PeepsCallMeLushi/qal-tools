@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 import { OptionButtonsComponent } from './components/action-buttons/option-buttons/option-buttons.component';
+import { BaseComponent } from './components/base/base.component';
 import { CardTableComponent } from './components/card-table/card-table.component';
 import { LoadingDialogComponent } from './components/loading-dialog/loading-dialog.component';
 import { SetSearchInputComponent } from './components/set-search-input/set-search-input.component';
@@ -12,6 +13,7 @@ import { SharedImportsModule } from './shared-imports.module';
 @NgModule({
   declarations: [
     ActionButtonsComponent,
+    BaseComponent,
     CardTableComponent,
     LoadingDialogComponent,
     OptionButtonsComponent,
@@ -25,6 +27,7 @@ import { SharedImportsModule } from './shared-imports.module';
   ],
   exports: [
     ActionButtonsComponent,
+    BaseComponent,
     CardTableComponent,
     LoadingDialogComponent,
     ReactiveFormsModule,
