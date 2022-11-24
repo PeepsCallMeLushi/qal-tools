@@ -20,7 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([], {useHash: true}),
     AppRoutingModule,
   ],
   providers: [
