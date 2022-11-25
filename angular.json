@@ -25,7 +25,8 @@
                         "tsConfig": "tsconfig.app.json",
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            "src/assets",
+                            "src/yan_favicon.png"
                         ],
                         "styles": [
                             "./node_modules/bootstrap/dist/css/bootstrap.css",
@@ -100,7 +101,8 @@
                         "karmaConfig": "karma.conf.js",
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            "src/assets",
+                            "src/yan_favicon.ico"
                         ],
                         "styles": [
                             "./node_modules/bootstrap/dist/css/bootstrap.css",
