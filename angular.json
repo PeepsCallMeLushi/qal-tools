@@ -26,7 +26,7 @@
                         "assets": [
                             "src/favicon.ico",
                             "src/assets",
-                            "src/yan_favicon.png"
+                            "src/clash_logo.png"
                         ],
                         "styles": [
                             "./node_modules/bootstrap/dist/css/bootstrap.css",
@@ -102,7 +102,7 @@
                         "assets": [
                             "src/favicon.ico",
                             "src/assets",
-                            "src/yan_favicon.ico"
+                            "src/clash_logo.png"
                         ],
                         "styles": [
                             "./node_modules/bootstrap/dist/css/bootstrap.css",
