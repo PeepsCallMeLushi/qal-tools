@@ -12,7 +12,7 @@ import { combineLatest, debounceTime } from 'rxjs';
 })
 export class DataSetCalculatorComponent implements OnInit {
 
-  public calculationRows: FormGroup[] = []
+  public calculationRows: FormGroup[] = [];
   public creditsPerMinute: FormControl = new FormControl(0, [Validators.min(1)]);
   public creditsOwned: FormControl = new FormControl(0);
   public dataSetsPerMinute: FormControl = new FormControl(0, [Validators.min(1)]);
@@ -116,7 +116,7 @@ export class DataSetCalculatorComponent implements OnInit {
 
     this.creditCalcResult = this.calculateMaterial(valueArr, MaterialOptionValues.CREDITS, this.creditsPerMinute.value, this.creditsOwned.value);
     this.dataSetsCalcResult = this.calculateMaterial(valueArr, MaterialOptionValues.DATA_SETS, this.dataSetsPerMinute.value, this.dataSetsOwned.value);
-    this.coreDustCalcResult =this.calculateMaterial(valueArr, MaterialOptionValues.CORE_DUSTS, this.coreDustPerHour.value, this.coreDustPerHour.value);
+    this.coreDustCalcResult = this.calculateMaterial(valueArr, MaterialOptionValues.CORE_DUSTS, this.coreDustPerHour.value/60, this.coreDustPerHour.value);
 
   }
 
