@@ -31,6 +31,13 @@ export class AppComponent {
 			},
 			tooltip: 'Go to Nikke\'s Data Calculator',
 		},
+		{
+			icon: 'account_circle',
+			action: () => {
+				this.router.navigate(['lol', 'player-team-randomizer'])
+			},
+			tooltip: 'Go to a League of Legends player team randomizer',
+		},
 	];
 
 	constructor(private router: Router) {}
