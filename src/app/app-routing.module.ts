@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'nikke',
     loadChildren: () => import('./nikke/nikke.module').then(m => m.NikkeModule)
   },
+  {
+    path: 'lol',
+    loadChildren: () => import('./league/league.module').then(m => m.LeagueModule)
+  },
 
 ];
 
