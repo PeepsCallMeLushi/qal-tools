@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { PlayerRandomizerComponent } from './player-randomizer/player-randomizer.component';
+import { PlayerListComponent } from './player-randomizer/player-list/player-list.component';
 import { TeamListComponent } from './player-randomizer/team-list/team-list.component';
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     PlayerRandomizerComponent,
+    PlayerListComponent,
     TeamListComponent
   ],
   imports: [

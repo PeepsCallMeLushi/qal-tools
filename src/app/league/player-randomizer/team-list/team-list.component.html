@@ -1,27 +1,14 @@
-<div class="margin-top-16">
-    Player Count: {{playerList.length}} / 10
-</div>
 <div class="row">
-    <ng-container *ngFor="let player of playerList">
-        <div class="col-xs-10 col-md-4">
-
-        </div>
-        <div class="col-xs-1 col-md-1">
-            <button mat-icon-button type="button" color="accent"><mat-icon>edit</mat-icon></button>
-        </div>
-        <div class="col-xs-1 col-md-1">
-            <button mat-icon-button type="button" color="warn"><mat-icon>delete</mat-icon></button>
-        </div>
-    </ng-container>
-    <ng-container *ngIf="playerList.length < 10">
-        <div class="col-xs-11 col-md-5">
-            <mat-form-field appearance="outline" class="width-100">
-                <mat-label>Player Name</mat-label>
-                <input matInput type="text" [placeholder]="'Type the player name here'" [maxLength]="16" [minLength]="3">
-            </mat-form-field>
-        </div>
-        <div class="col-xs-1 col-md-1">
-            <button mat-icon-button type="button" color="accent"><mat-icon>add</mat-icon></button>
-        </div>
-    </ng-container>
+    <div class="col-12 col-md-6">
+        <h2>Blue Team</h2>
+        <mat-form-field appearance="outline" class="width-100 blue-player" *ngFor="let bPlayer of blueTeam">
+            <input matInput type="text" [placeholder]="'Type the player name here'" [maxLength]="16" [minLength]="3" [formControl]="$any(bPlayer).get('playerName')">
+        </mat-form-field>
+    </div>
+    <div class="col-12 col-md-6">
+        <h2>Red Team</h2>
+        <mat-form-field appearance="outline" class="width-100 red-player" *ngFor="let rPlayer of redTeam">
+            <input matInput type="text" [placeholder]="'Type the player name here'" [maxLength]="16" [minLength]="3" [formControl]="$any(rPlayer).get('playerName')">
+        </mat-form-field>
+    </div>
 </div>
