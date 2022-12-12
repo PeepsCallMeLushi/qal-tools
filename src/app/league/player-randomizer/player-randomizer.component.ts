@@ -18,30 +18,43 @@ export class PlayerRandomizerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.loadFromLocalStorage();
   }
 
   public addPlayer(playerName: string): void {
     const newPlayer = new FormGroup({
       playerName: new FormControl(playerName, [Validators.required, Validators.minLength(3), Validators.maxLength(16)]),
       role: new FormControl(null),
-      edit: new FormControl(false),
+      notBeingEdited: new FormControl(true, Validators.requiredTrue),
     });
     newPlayer.disable();
     this.playerList.push(newPlayer);
+    const editInput = document.getElementById("player-name-input");
+    if (editInput) {
+      editInput.focus();
+    }
+    this.saveInLocalStorage();
   }
 
   public randomize(): void {
     if (this.playerList.length >= 3 && this.playerList.length <= 10) {
+      let canShuffleTheList = true;
       const shuffledList: FormGroup[] = ArrayUtils.shuffle(this.playerList.slice());
-      shuffledList.forEach((player, index)=>{
-        console.log(Math.floor(shuffledList.length / 2));
-        if ( (index + 1) <= Math.floor(shuffledList.length / 2)) {
-          this.blueTeam.push(player);
-        } else {
-          this.redTeam.push(player);
+      shuffledList.forEach((player) => {
+        if (player.get('notBeingEdited')?.value === false) {
+          canShuffleTheList = false;
         }
-      })
-      this.randomized = true;
+      });
+      if (canShuffleTheList) {
+        shuffledList.forEach((player, index)=>{
+          if ( (index + 1) <= Math.floor(shuffledList.length / 2)) {
+            this.blueTeam.push(player);
+          } else {
+            this.redTeam.push(player);
+          }
+        })
+        this.randomized = true;
+      }
     }
   }
 
@@ -54,6 +67,23 @@ export class PlayerRandomizerComponent implements OnInit {
   public randomizeAgain(): void {
     this.clearRandomize();
     this.randomize();
+  }
+
+  public saveInLocalStorage(): void {
+    const playerNameList: string[] = [];
+    this.playerList.forEach(player => {
+      playerNameList.push(player.get('playerName')?.value);
+    })
+    localStorage.setItem('playerList', playerNameList.join(','));
+  }
+
+  private loadFromLocalStorage(): void {
+    const playerNameList = localStorage.getItem('playerList');
+    if (playerNameList) {
+      playerNameList.split(',').forEach((name) => {
+        this.addPlayer(name);
+      });
+    }
   }
 
 }

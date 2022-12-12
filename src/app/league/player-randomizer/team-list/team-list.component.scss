@@ -1,3 +1,19 @@
-.red-player {}
+.red-player ::ng-deep {
+    .mat-form-field-outline {
+        color: #BA0C1D !important;
+        background-color: rgba(186, 12, 29, .10);
+        border-radius: 6px;
+    }
+}
 
-.blue-player {}
+.blue-player ::ng-deep {
+    .mat-form-field-outline {
+        color: #0C74BA !important;
+        background-color: rgba(12, 116, 186, .10);
+        border-radius: 6px;
+    }
+}
+
+.mat-input-element:disabled {
+    color: white;
+}

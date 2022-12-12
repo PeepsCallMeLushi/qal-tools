@@ -12,6 +12,7 @@ export class PlayerListComponent implements OnInit {
   public playerNameInput: FormControl = new FormControl(null, [Validators.maxLength(16), Validators.minLength(3)]);
   @Input() playerList: FormGroup[] = [];
   @Output() added: EventEmitter<string> = new EventEmitter<string>();
+  @Output() edited: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -33,14 +34,15 @@ export class PlayerListComponent implements OnInit {
 
   public editPlayer(index: number): void {
     const player = this.playerList[index] as FormGroup;
-    const editThePlayer = player.get('edit');
+    const editThePlayer = player.get('notBeingEdited');
     if (editThePlayer) {
       if (editThePlayer.value) {
-        player.disable();
-      } else {
         player.enable()
+      } else {
+        player.disable();
       }
       editThePlayer.setValue(!editThePlayer.value);
+      this.edited.emit();
     }
   }
 
