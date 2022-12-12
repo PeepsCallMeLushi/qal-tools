@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'team-list',
@@ -7,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TeamListComponent implements OnInit {
 
-  @Input() playerList: string[] = [];
+  @Input() blueTeam: FormGroup[] = [];
+  @Input() redTeam: FormGroup[] = [];
 
   constructor() { }
 

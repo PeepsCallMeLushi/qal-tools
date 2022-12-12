@@ -1,4 +1,19 @@
 <h1>Player Team Randomizer</h1>
-<div>
-    <team-list></team-list>
-</div>
+<ng-container *ngIf="randomized; else playerListInput">
+    <div class="align-right margin-top-16">
+        <button mat-stroked-button type="button" (click)="clearRandomize()" color="accent" class="margin-right-16">Clear<mat-icon>delete</mat-icon></button>
+        <button mat-stroked-button type="button" (click)="randomizeAgain()" color="accent" class="margin-right-16">Randomize Again<mat-icon>replay</mat-icon></button>
+    </div>
+    <div class="margin-top-16">
+        <team-list [blueTeam]="blueTeam" [redTeam]="redTeam"></team-list>
+    </div>
+</ng-container>
+<ng-template #playerListInput>
+    <div class="align-right margin-top-16">
+        <button mat-stroked-button type="button" (click)="randomize()" color="accent" class="margin-right-16" [disabled]="playerList.length < 3">Randomize Teams<mat-icon>shuffle</mat-icon></button>
+    </div>
+    <div class="margin-top-16">
+        <player-list [playerList]="playerList" (added)="addPlayer($event)">
+        </player-list>
+    </div>
+</ng-template>

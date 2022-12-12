@@ -1,0 +1,27 @@
+<div>
+    Player Count: {{playerList.length}} / 10
+</div>
+<div class="row">
+    <ng-container *ngFor="let player of playerList; let i = index;">
+        <div class="col-8 col-md-4">
+            <mat-form-field appearance="outline" class="width-100">
+                <input matInput type="text" [placeholder]="'Type the player name here'" [maxLength]="16" [minLength]="3" [formControl]="$any(player).get('playerName')">
+            </mat-form-field>
+        </div>
+        <div class="col-4 col-md-2 align-right">
+            <button mat-icon-button type="button" color="accent" (click)="editPlayer(i)" class="margin-right-16"><mat-icon>{{ $any(player).get('edit').value ? 'save' : 'edit' }}</mat-icon></button>
+            <button mat-icon-button type="button" color="warn" (click)="deletePlayer(i)"><mat-icon>delete</mat-icon></button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="playerList.length < 10">
+        <div class="col-8 col-md-4">
+            <mat-form-field appearance="outline" class="width-100">
+                <mat-label>Player Name</mat-label>
+                <input matInput type="text" [placeholder]="'Type the player name here'" [maxLength]="16" [minLength]="3" [formControl]="playerNameInput">
+            </mat-form-field>
+        </div>
+        <div class="col-4 col-md-2 align-right">
+            <button mat-icon-button type="button" color="accent" (click)="addPlayer()"><mat-icon>add</mat-icon></button>
+        </div>
+    </ng-container>
+</div>
