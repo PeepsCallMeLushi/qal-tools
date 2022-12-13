@@ -1,19 +1,25 @@
 <h1>Player Team Randomizer</h1>
-<ng-container *ngIf="randomized; else playerListInput">
-    <div class="align-right margin-top-16">
+
+<div class="align-right margin-top-16">
+    <ng-container *ngIf="randomized; else playerListButton">
         <button mat-stroked-button type="button" (click)="clearRandomize()" color="accent" class="margin-right-16">Go Back<mat-icon>arrow_back</mat-icon></button>
-        <button mat-stroked-button type="button" (click)="randomizeAgain()" color="accent" class="margin-right-16">Randomize Again<mat-icon>replay</mat-icon></button>
-    </div>
-    <div class="margin-top-16">
+        <button mat-stroked-button type="button" (click)="randomizeAgain()" color="accent">Randomize Again<mat-icon>replay</mat-icon></button>
+    </ng-container>
+    <button mat-icon-button type="button" class="margin-left-16" (click)="openSettingsDialog()" color="accent"><mat-icon>settings</mat-icon></button>
+</div>
+
+<div class="margin-top-16">
+    <ng-container *ngIf="randomized; else playerListInput">
         <team-list [blueTeam]="blueTeam" [redTeam]="redTeam"></team-list>
-    </div>
-</ng-container>
+    </ng-container>
+</div>
+
+<ng-template #playerListButton>
+    <button mat-stroked-button type="button" (click)="clearList()" color="warn" class="margin-right-16">Clear List<mat-icon>delete_forever</mat-icon></button>
+    <button mat-stroked-button type="button" (click)="randomize()" color="accent" [disabled]="playerList.length < 3">Randomize Teams<mat-icon>shuffle</mat-icon></button>
+</ng-template>
+
 <ng-template #playerListInput>
-    <div class="align-right margin-top-16">
-        <button mat-stroked-button type="button" (click)="randomize()" color="accent" class="margin-right-16" [disabled]="playerList.length < 3">Randomize Teams<mat-icon>shuffle</mat-icon></button>
-    </div>
-    <div class="margin-top-16">
-        <player-list [playerList]="playerList" (added)="addPlayer($event)" (edited)="saveInLocalStorage()">
-        </player-list>
-    </div>
+    <player-list [playerList]="playerList" (added)="addPlayer($event)" (edited)="saveInLocalStorage()">
+    </player-list>
 </ng-template>

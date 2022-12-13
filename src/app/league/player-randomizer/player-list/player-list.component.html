@@ -9,8 +9,8 @@
             </mat-form-field>
         </div>
         <div class="col-4 col-md-2 align-right">
-            <button mat-icon-button type="button" color="accent" (click)="editPlayer(i)" (keydown.enter)="editPlayer(i)" class="margin-right-16"><mat-icon>{{ $any(player).get('notBeingEdited').value ? 'edit' : 'save' }}</mat-icon></button>
-            <button mat-icon-button type="button" color="warn" (click)="deletePlayer(i)" (keydown.enter)="deletePlayer(i)"><mat-icon>delete</mat-icon></button>
+            <button mat-icon-button type="button" color="accent" (click)="editPlayer(i)" class="margin-right-16"><mat-icon>{{ $any(player).get('notBeingEdited').value ? 'edit' : 'save' }}</mat-icon></button>
+            <button mat-icon-button type="button" color="warn" (click)="deletePlayer(i)"><mat-icon>delete</mat-icon></button>
         </div>
     </ng-container>
     <ng-container *ngIf="playerList.length < 10">
@@ -21,7 +21,7 @@
             </mat-form-field>
         </div>
         <div class="col-4 col-md-2 align-right">
-            <button mat-icon-button type="button" color="accent" (click)="addPlayer()" (keydown.enter)="addPlayer()"><mat-icon>add</mat-icon></button>
+            <button mat-icon-button type="button" color="accent" (click)="addPlayer()"><mat-icon>add</mat-icon></button>
         </div>
     </ng-container>
 </div>

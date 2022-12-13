@@ -6,6 +6,7 @@ import { OptionButtonsComponent } from './components/action-buttons/option-butto
 import { BaseComponent } from './components/base/base.component';
 import { CardTableComponent } from './components/card-table/card-table.component';
 import { LoadingDialogComponent } from './components/loading-dialog/loading-dialog.component';
+import { PlayerRandomizerSettingsComponent } from './components/player-randomizer-settings/player-randomizer-settings.component';
 import { SetSearchInputComponent } from './components/set-search-input/set-search-input.component';
 import { VersionLabelComponent } from './components/version-label/version-label.component';
 import { SharedImportsModule } from './shared-imports.module';
@@ -17,6 +18,7 @@ import { SharedImportsModule } from './shared-imports.module';
     CardTableComponent,
     LoadingDialogComponent,
     OptionButtonsComponent,
+    PlayerRandomizerSettingsComponent,
     SetSearchInputComponent,
     VersionLabelComponent,
   ],
@@ -32,6 +34,7 @@ import { SharedImportsModule } from './shared-imports.module';
     LoadingDialogComponent,
     ReactiveFormsModule,
     OptionButtonsComponent,
+    PlayerRandomizerSettingsComponent,
     SetSearchInputComponent,
     VersionLabelComponent,
     SharedImportsModule,

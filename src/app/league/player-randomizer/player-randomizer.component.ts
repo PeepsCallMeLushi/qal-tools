@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DialogService } from 'src/app/shared/services';
 import { ArrayUtils } from 'src/app/shared/utils/array.utils';
 import { runInThisContext } from 'vm';
 
@@ -15,7 +16,7 @@ export class PlayerRandomizerComponent implements OnInit {
   public redTeam: FormGroup[] = [];
   public randomized = false;
 
-  constructor() { }
+  constructor(private dialog: DialogService) { }
 
   ngOnInit(): void {
     this.loadFromLocalStorage();
@@ -75,6 +76,15 @@ export class PlayerRandomizerComponent implements OnInit {
       playerNameList.push(player.get('playerName')?.value);
     })
     localStorage.setItem('playerList', playerNameList.join(','));
+  }
+
+  public clearList(): void {
+    this.playerList.splice(0, this.playerList.length);
+    this.saveInLocalStorage();
+  }
+
+  public openSettingsDialog(): void {
+    this.dialog.openSettingsDialog();
   }
 
   private loadFromLocalStorage(): void {
